@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <style>
+    body{
+      font-family: 'Georgia', serif;
+      background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+      background-color: #f5f0e6;
+      color: #3e2f1c;
+      padding: 40px;
+    }
+#clock-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#clock {
+  font-family: 'Courier New', monospace;
+  font-size: 1.6em;
+  color: #f4f4f4;
+  background-color: #2b2b2b;
+  border: 3px inset #555;
+  padding: 14px 28px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px #00ffcc;
+}
+
+    .navbar {
+      background-color: #d8c3a5;
+      border: 2px solid #b89b72;
+      padding: 12px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+      color: #3e2f1c;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-family: 'Palatino Linotype', serif;
+    }
+
+    .navbar a:hover { text-decoration: underline; }
+
+    /* Hero banner inspired by Porsche */
+    .hero-banner {
+      position: relative;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    .hero-image {
+      width: 100%;
+      max-height: 600px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(245, 240, 230, 0.85);
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(120, 90, 60, 0.3);
+    }
+
+  .hero-overlay h1 {
+  font-family: 'Georgia';
+  font-size: 2.6em;
+  color: #4b3621;
+  margin-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #4b3621;
+  animation: typing 4s steps(30, end), blink 0.7s step-end infinite;
+    }
+
+  @keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+  }
+
+  @keyframes blink {
+  50% { border-color: transparent }
+  }
+    
+    .hero-overlay p {
+      font-family: 'Georgia', serif;
+      font-size: 1.2em;
+      color: #5c4033;
+      margin-bottom: 20px;
+    }
+    .hero-button {
+      display: inline-block;
+      font-family: 'Palatino Linotype', serif;
+      font-size: 1em;
+      color: #fff;
+      background-color: #6b4226;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    .hero-button:hover { background-color: #8c5a3c; }
+
+    /* Animations */
+    @keyframes glow {
+      from { text-shadow: 0 0 5px rgba(255, 235, 200, 0.4); }
+      to   { text-shadow: 0 0 15px rgba(255, 235, 200, 0.8); }
+    }
+
+.portfolio-section {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.portfolio-section h2 {
+  font-family: 'Palatino Linotype', serif;
+  font-size: 2em;
+  color: #4b3621;
+  margin-bottom: 30px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.portfolio-card {
+  background-color: #fff;
+  border: 2px solid #b89b72;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(120, 90, 60, 0.2);
+  font-family: 'Georgia', serif;
+  color: #3e2f1c;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(120, 90, 60, 0.3);
+}
+
+.portfolio-card p {
+  font-size: 1em;
+  margin-bottom: 16px;
+}
+
+.portfolio-button {
+  display: inline-block;
+  font-family: 'Palatino Linotype', serif;
+  font-size: 1em;
+  color: #fff;
+  background-color: #6b4226;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.portfolio-button:hover {
+  background-color: #8c5a3c;
+}
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #7b5e45;
+      margin-top: 50px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Clock -->
+<div id="clock-container"><div id="clock"></div></div>
+
+<!-- Navbar -->
+<div class="navbar">
+  <a href="index.html">Index</a>
+  <a href="biodata.html">Biodata</a>
+  <a href="experience.html">Experience</a>
+  <a href="education.html">Education</a>
+  <a href="family.html">Family</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contacts.html">Contacts</a>
+</div>
+
+<!-- Hero Section -->
+<div class="hero-banner">
+  <img src="potrait.jpg" alt="Vintage Welcome" class="hero-image">
+  <div class="hero-overlay">
+    <h1>Welcome to Uzair’s Personal Vault</h1>
+    <p>A scrapbook of timeless memories, crafted with warmth and detail.</p>
+    <a href="biodata.html" class="hero-button">Discover more</a>
+  </div>
+</div>
+
+<div class="portfolio-section">
+  <h2>Explore My Portfolio</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-card">
+      <p>Learn more about my background, interests, and personal journey.</p>
+      <a href="biodata.html" class="portfolio-button">View Biodata</a>
+    </div>
+    <div class="portfolio-card">
+      <p>Discover my internship experience and professional milestones.</p>
+      <a href="experience.html" class="portfolio-button">Work Experience</a>
+    </div>
+    <div class="portfolio-card">
+      <p>Explore my academic achievements and educational path.</p>
+      <a href="education.html" class="portfolio-button">Education</a>
+    </div>
+    <div class="portfolio-card">
+      <p>Browse through my curated gallery of memories and moments.</p>
+      <a href="gallery.html" class="portfolio-button">Gallery</a>
+    </div>
+    <div class="portfolio-card">
+      <p>Connect with me via WhatsApp, Instagram, and LinkedIn.</p>
+      <a href="contacts.html" class="portfolio-button">Contact Me</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">&copy; 2025 Uzair. Crafted with nostalgia and love.</div>
+
+<!-- Clock Script -->
+<script>
+function updateClock() {
+  const options = {
+    timeZone: 'Asia/Kuala_Lumpur',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+  const now = new Date();
+  const formatter = new Intl.DateTimeFormat('en-GB', options);
+  const parts = formatter.formatToParts(now);
+
+  let dateStr = '';
+  let timeStr = '';
+  parts.forEach(part => {
+    if (['year', 'month', 'day'].includes(part.type)) {
+      dateStr += part.value + ' ';
+    }
+    if (['hour', 'minute', 'second'].includes(part.type)) {
+      timeStr += part.value + (part.type !== 'second' ? ':' : '');
+    }
+  });
+
+  document.getElementById('clock').innerHTML =
+    `${dateStr.trim()}<br>${timeStr}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>

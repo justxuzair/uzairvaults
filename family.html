@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Family</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+      background-color: #f5f0e6;
+      color: #3e2f1c;
+      padding: 40px;
+    }
+
+    /* Clock styling */
+    #clock-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #clock {
+      font-family: 'Courier New', monospace;
+      font-size: 1.6em;
+      color: #f4f4f4;
+      background-color: #2b2b2b;
+      border: 3px inset #555;
+      padding: 14px 28px;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      letter-spacing: 2px;
+      text-shadow: 0 0 6px #00ffcc;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      background-color: #d8c3a5;
+      border: 2px solid #b89b72;
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .navbar a {
+      color: #3e2f1c;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-family: 'Palatino Linotype', serif;
+    }
+
+    .navbar a:hover { text-decoration: underline; }
+
+    h1 {
+      font-family: 'Palatino Linotype', serif;
+      font-style: italic;
+      font-size: 2.4em;
+      color: #4b3621;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+.family-photo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.family-photo .polaroid {
+  background-color: #fff;
+  border: 10px solid #fff;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.family-photo .polaroid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.family-photo .caption {
+  font-family: 'Georgia', serif;
+  font-size: 1.1em;
+  color: #5c4033;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px rgba(255, 235, 200, 0.4); }
+  to   { text-shadow: 0 0 15px rgba(255, 235, 200, 0.8); }
+}
+
+
+    .polaroid-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .polaroid {
+      background-color: #fff;
+      border: 10px solid #fff;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
+      padding: 10px;
+      text-align: center;
+      width: 220px;
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+.polaroid-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+    .caption {
+      font-family: 'Georgia', serif;
+      font-size: 1em;
+      color: #5c4033;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px rgba(255, 235, 200, 0.4); }
+      to   { text-shadow: 0 0 15px rgba(255, 235, 200, 0.8); }
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #7b5e45;
+      margin-top: 50px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Clock -->
+  <div id="clock-container">
+    <div id="clock"></div>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+      <a href="index.html">Index</a>
+      <a href="biodata.html">Biodata</a>
+      <a href="experience.html">Experience</a>
+      <a href="education.html">Education</a>
+      <a href="family.html">Family</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contacts.html">Contacts</a>
+  </div>
+
+  <h1>Lovely Home since Day 1</h1>
+
+  <!-- Full Family Photo -->
+  <div class="family-photo">
+  <a href="familygroup.jpg" target="_blank">
+    <div class="polaroid">
+      <img src="familygroup.jpg" alt="Keluarga Kami">
+      <div class="caption">Lovely Home since Day 1</div>
+    </div>
+  </a>
+</div>
+
+  <!-- Individual Polaroid Frames -->
+  <div class="polaroid-grid">
+    <div class="polaroid">
+      <img src="ayah.jpg" alt="Ayah">
+      <div class="caption">Ahmad Ismail Taib — Ayah</div>
+    </div>
+    <div class="polaroid">
+      <img src="mama.jpg" alt="Mama">
+      <div class="caption">Rofidah Ismail — Mama</div>
+    </div>
+    <div class="polaroid">
+      <img src="abang.jpg" alt="Eldest Brother">
+      <div class="caption">Muhammad Hilmy Ashraff' — Abang</div>
+    </div>
+    <div class="polaroid">
+      <img src="sister1.jpg" alt="Eldest Sister">
+      <div class="caption">Qutrin Nazira — Kakak 1</div>
+    </div>
+    <div class="polaroid">
+      <img src="sister2.jpg" alt="Second Eldest Sister">
+      <div class="caption">Qhairunnisaa — Kakak 2</div>
+    </div>
+    <div class="polaroid">
+      <img src="jajai.jpg" alt="Me">
+      <div class="caption">Uzair Hakimy — Me</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Uzair. Family is the manuscript of love and belonging.
+  </div>
+
+  <!-- Clock Script -->
+  <script>
+    function updateClock() {
+      const options = {
+        timeZone: 'Asia/Kuala_Lumpur',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('en-GB', options);
+      const parts = formatter.formatToParts(now);
+
+      let dateStr = '';
+      let timeStr = '';
+      parts.forEach(part => {
+        if (['year', 'month', 'day'].includes(part.type)) {
+          dateStr += part.value + ' ';
+        }
+        if (['hour', 'minute', 'second'].includes(part.type)) {
+          timeStr += part.value + (part.type !== 'second' ? ':' : '');
+        }
+      });
+
+      document.getElementById('clock').innerHTML = 
+        `${dateStr.trim()}<br>${timeStr}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>

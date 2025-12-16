@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+      background-color: #f5f0e6;
+      color: #3e2f1c;
+      padding: 40px;
+    }
+
+    /* Clock styling */
+    #clock-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #clock {
+      font-family: 'Courier New', monospace;
+      font-size: 1.6em;
+      color: #f4f4f4;
+      background-color: #2b2b2b;
+      border: 3px inset #555;
+      padding: 14px 28px;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      letter-spacing: 2px;
+      text-shadow: 0 0 6px #00ffcc;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #d8c3a5;
+      border: 2px solid #b89b72;
+      padding: 12px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+      color: #3e2f1c;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-family: 'Palatino Linotype', serif;
+    }
+
+    .navbar a:hover { text-decoration: underline; }
+
+    h1 {
+      font-family: 'Palatino Linotype', serif;
+      font-style: italic;
+      font-size: 2.4em;
+      color: #4b3621;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Gallery grid */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+    }
+
+    /* Polaroid styling */
+    .polaroid {
+      background-color: #fff;
+      border: 10px solid #fff;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .polaroid:hover {
+      transform: translateY(-5px) rotate(-1deg);
+      box-shadow: 0 12px 25px rgba(120, 90, 60, 0.35);
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .polaroid img {
+        height: 200px;
+      }
+    }
+
+    .caption {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 1.1em;
+      color: #5c4033;
+      margin-top: 5px;
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+      text-align: center;
+    }
+
+    .lightbox-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 70%;
+      border: 4px solid #fff;
+      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    }
+
+    .lightbox-caption {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 1.3em;
+      color: #fff;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #7b5e45;
+      margin-top: 50px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Clock -->
+<div id="clock-container">
+  <div id="clock"></div>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+  <a href="index.html">Index</a>
+  <a href="biodata.html">Biodata</a>
+  <a href="experience.html">Experience</a>
+  <a href="education.html">Education</a>
+  <a href="family.html">Family</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contacts.html">Contacts</a>
+</div>
+
+<h1>Uzair's Gallery</h1>
+
+<!-- Gallery Grid -->
+<div class="gallery-container">
+  <div class="polaroid" onclick="openLightbox(0)"><img src="picture1.jpg"><div class="caption">Memory 1...</div></div>
+  <div class="polaroid" onclick="openLightbox(1)"><img src="picture2.jpg"><div class="caption">Memory 2...</div></div>
+  <div class="polaroid" onclick="openLightbox(2)"><img src="picture3.jpg"><div class="caption">Memory 3...</div></div>
+  <div class="polaroid" onclick="openLightbox(3)"><img src="picture4.jpg"><div class="caption">Memory 4...</div></div>
+  <div class="polaroid" onclick="openLightbox(4)"><img src="picture5.jpg"><div class="caption">Memory 5...</div></div>
+  <div class="polaroid" onclick="openLightbox(5)"><img src="picture6.jpg"><div class="caption">Memory 6...</div></div>
+  <div class="polaroid" onclick="openLightbox(6)"><img src="picture7.jpg"><div class="caption">Memory 7...</div></div>
+  <div class="polaroid" onclick="openLightbox(7)"><img src="picture8.jpg"><div class="caption">Memory 8...</div></div>
+  <div class="polaroid" onclick="openLightbox(8)"><img src="picture9.jpg"><div class="caption">Memory 9...</div></div>
+  <div class="polaroid" onclick="openLightbox(9)"><img src="picture10.jpg"><div class="caption">Memory 10...</div></div>
+  <div class="polaroid" onclick="openLightbox(10)"><img src="picture11.jpg"><div class="caption">Memory 11...</div></div>
+  <div class="polaroid" onclick="openLightbox(11)"><img src="picture12.jpg"><div class="caption">Memory 12...</div></div>
+  <div class="polaroid" onclick="openLightbox(12)"><img src="picture13.jpg"><div class="caption">Memory 13...</div></div>
+  <div class="polaroid" onclick="openLightbox(13)"><img src="picture16.jpg"><div class="caption">Memory 14...</div></div>
+  <div class="polaroid" onclick="openLightbox(14)"><img src="family.jpg"><div class="caption">Memory 15...</div></div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <img class="lightbox-content" id="lightbox-img">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<div class="footer">&copy; 2025 Uzair. A scrapbook of timeless memories.</div>
+
+<!-- Lightbox Script -->
+<script>
+  const images = [
+    { src: "picture1.jpg", caption: "Memory 1..." },
+    { src: "picture2.jpg", caption: "Memory 2..." },
+    { src: "picture3.jpg", caption: "Memory 3..." },
+    { src: "picture4.jpg", caption: "Memory 4..." },
+    { src: "picture5.jpg", caption: "Memory 5..." },
+    { src: "picture6.jpg", caption: "Memory 6..." },
+    { src: "picture7.jpg", caption: "Memory 7..." },
+    { src: "picture8.jpg", caption: "Memory 8..." },
+    { src: "picture9.jpg", caption: "Memory 9..." },
+    { src: "picture10.jpg", caption: "Memory 10..." },
+    { src: "picture11.jpg", caption: "Memory 11..." },
+    { src: "picture12.jpg", caption: "Memory 12..." },
+    { src: "picture13.jpg", caption: "Memory 13..." },
+    { src: "picture16.jpg", caption: "Memory 14..." },
+    { src: "family.jpg", caption: "Memory 15..." }
+  ];
+
+  let currentIndex = 0;
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCap = document.getElementById("lightbox-caption");
+
+  function renderSlide(index) {
+    lightboxImg.src = images[index].src;
+    lightboxCap.textContent = images[index].caption;
+  }
+
+  function openLightbox(index) {
+    currentIndex = index;
+    renderSlide(currentIndex);
+    lightbox.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = "none";
+    document.body.style.overflow = "";
+  }
+
+  function changeSlide(step) {
+    currentIndex = (currentIndex + step + images.length) % images.length;
+    renderSlide(currentIndex);
+  }
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "block") {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") changeSlide(-1);
+      if (e.key === "ArrowRight") changeSlide(1);
+    }
+  });
+
+  images.forEach(item => {
+    const img = new Image();
+    img.src = item.src;
+  });
+</script>
+
+<!-- Clock Script -->
+<script>
+function updateClock() {
+  const options = {
+    timeZone: 'Asia/Kuala_Lumpur',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+
+  const now = new Date();
+  const formatter = new Intl.DateTimeFormat('en-GB', options);
+  const parts = formatter.formatToParts(now);
+
+  let dateStr = '';
+  let timeStr = '';
+  parts.forEach(part => {
+    if (['year', 'month', 'day'].includes(part.type)) {
+      dateStr += part.value + ' ';
+    }
+    if (['hour', 'minute', 'second'].includes(part.type)) {
+      timeStr += part.value + (part.type !== 'second' ? ':' : '');
+    }
+  });
+
+  document.getElementById('clock').innerHTML =
+    `${dateStr.trim()}<br>${timeStr}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>

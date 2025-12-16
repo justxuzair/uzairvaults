@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata</title>
+  <style>
+    /* ===== GLOBAL STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+      background-color: #f5f0e6;
+      color: #3e2f1c;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    /* ===== CLOCK SECTION ===== */
+    #clock-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    #clock {
+      font-family: 'Courier New', monospace;
+      font-size: 1.5em;
+      color: #f4f4f4;
+      background-color: #2b2b2b;
+      border: 3px inset #555;
+      padding: 14px 28px;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      letter-spacing: 2px;
+      text-shadow: 0 0 6px #00ffcc;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      background-color: #d8c3a5;
+      border: 2px solid #b89b72;
+      padding: 12px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+      color: #3e2f1c;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-family: 'Palatino Linotype', serif;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+
+    .navbar a:hover {
+      color: #6b4226;
+      text-decoration: underline;
+    }
+
+    /* ===== MAIN CONTAINER ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ===== HEADINGS ===== */
+    .page-heading {
+      font-family: 'Palatino Linotype', serif;
+      font-size: 2.4em;
+      color: #4b3621;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading {
+      font-family: 'Palatino Linotype', serif;
+      font-size: 2em;
+      color: #4b3621;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* ===== PROFILE SECTION ===== */
+    .profile-section {
+      background-color: #fff;
+      border: 2px solid #b89b72;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 6px 12px rgba(120, 90, 60, 0.2);
+    }
+
+    .profile-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .profile-photo {
+      flex-shrink: 0;
+    }
+
+    .profile-photo img {
+      width: 280px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
+    }
+
+    .profile-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .info-block h3 {
+      font-family: 'Palatino Linotype', serif;
+      font-size: 1.3em;
+      color: #4b3621;
+      margin-bottom: 15px;
+    }
+
+    .biodata-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .biodata-table tr {
+      border-bottom: 1px solid #e0d5c7;
+    }
+
+    .biodata-table td {
+      padding: 8px 0;
+      font-size: 1em;
+    }
+
+    .biodata-table td:first-child {
+      font-weight: bold;
+      width: 40%;
+      color: #5c4033;
+    }
+
+    /* ===== MUSIC PLAYER ===== */
+    .music-section {
+      background-color: #fff;
+      border: 2px solid #b89b72;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 6px 12px rgba(120, 90, 60, 0.2);
+    }
+
+    .music-player {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: #faf8f5;
+      border: 1px solid #b89b72;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .music-player img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .music-details {
+      flex: 1;
+    }
+
+    .song-title {
+      font-family: 'Palatino Linotype', serif;
+      font-size: 1.3em;
+      color: #4b3621;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .artist-name {
+      font-family: 'Georgia', serif;
+      font-size: 1em;
+      color: #5c4033;
+      margin-bottom: 15px;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    /* ===== SKILLS SECTION ===== */
+    .skills-section {
+      background-color: #fff;
+      border: 2px solid #b89b72;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 6px 12px rgba(120, 90, 60, 0.2);
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill span {
+      display: block;
+      font-weight: bold;
+      color: #4b3621;
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+
+    .skill-bar {
+      width: 100%;
+      height: 25px;
+      background-color: #e8dcc8;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #6b4226, #8c5a3c);
+      border-radius: 12px;
+      transition: width 1s ease;
+    }
+
+    .skill-fill.html { width: 75%; }
+    .skill-fill.video { width: 85%; }
+    .skill-fill.media { width: 90%; }
+
+    /* ===== ACHIEVEMENTS SECTION ===== */
+    .achievements-section {
+      background-color: #fff;
+      border: 2px solid #b89b72;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 6px 12px rgba(120, 90, 60, 0.2);
+    }
+
+    .achievement-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .achievement-list li {
+      font-family: 'Georgia', serif;
+      font-size: 1.1em;
+      color: #3e2f1c;
+      padding: 12px 0;
+      border-bottom: 1px solid #e8dcc8;
+    }
+
+    .achievement-list li:last-child {
+      border-bottom: none;
+    }
+
+    .achievement-list li::before {
+      content: "✦ ";
+      color: #6b4226;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    /* ===== CALL TO ACTION ===== */
+    .cta-section {
+      background-color: #fff;
+      border: 2px solid #b89b72;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(120, 90, 60, 0.2);
+      margin-bottom: 30px;
+    }
+
+    .cta-section h2 {
+      font-family: 'Palatino Linotype', serif;
+      font-size: 2em;
+      color: #4b3621;
+      margin-bottom: 15px;
+    }
+
+    .cta-section p {
+      font-size: 1.1em;
+      color: #5c4033;
+      margin-bottom: 25px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      font-family: 'Palatino Linotype', serif;
+      font-size: 1.1em;
+      color: #fff;
+      background-color: #6b4226;
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #8c5a3c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      font-size: 0.95em;
+      color: #7b5e45;
+      margin-top: 40px;
+      font-style: italic;
+      padding: 20px 0;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+
+      #clock {
+        font-size: 1.2em;
+        padding: 10px 20px;
+      }
+
+      .navbar a {
+        margin: 5px 10px;
+        font-size: 0.9em;
+      }
+
+      .page-heading {
+        font-size: 1.8em;
+      }
+
+      .section-heading {
+        font-size: 1.5em;
+      }
+
+      .profile-photo img {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .music-player {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .music-player img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Clock -->
+    <div id="clock-container">
+      <div id="clock"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <a href="index.html">Index</a>
+      <a href="biodata.html">Biodata</a>
+      <a href="experience.html">Experience</a>
+      <a href="education.html">Education</a>
+      <a href="family.html">Family</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+
+    <!-- Page Heading -->
+    <h1 class="page-heading">About Me</h1>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+      <div class="profile-content">
+        <div class="profile-photo">
+          <img src="Uzair2.jpg" alt="Uzair Hakimy">
+        </div>
+        
+        <div class="profile-info">
+          <div class="info-grid">
+            <!-- Personal Information -->
+            <div class="info-block">
+              <h3>Personal Information</h3>
+              <table class="biodata-table">
+                <tr>
+                  <td>Full Name:</td>
+                  <td>Uzair Hakimy bin Ahmad Ismail</td>
+                </tr>
+                <tr>
+                  <td>Date of Birth:</td>
+                  <td>9 March 2005</td>
+                </tr>
+                <tr>
+                  <td>Place of Birth:</td>
+                  <td>Hospital Sultanah Aminah, Johor Bahru</td>
+                </tr>
+                <tr>
+                  <td>Nationality:</td>
+                  <td>Malaysian</td>
+                </tr>
+                <tr>
+                  <td>Religion:</td>
+                  <td>Islam</td>
+                </tr>
+                <tr>
+                  <td>Gender:</td>
+                  <td>Male</td>
+                </tr>
+                <tr>
+                  <td>Marital Status:</td>
+                  <td>Single</td>
+                </tr>
+                <tr>
+                  <td>Hobbies:</td>
+                  <td>Cooking, Baking, Singing</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="info-block">
+              <h3>Contact Information</h3>
+              <table class="biodata-table">
+                <tr>
+                  <td>Email:</td>
+                  <td>uzairhakimy@gmail.com</td>
+                </tr>
+                <tr>
+                  <td>Instagram:</td>
+                  <td>@justxuzair</td>
+                </tr>
+                <tr>
+                  <td>LinkedIn:</td>
+                  <td>Uzair Hakimy Ahmad Ismail</td>
+                </tr>
+              </table>
+              
+              <p style="margin-top: 20px; font-style: italic; color: #5c4033;">
+                <strong>Uzair Hakimy</strong><br>
+                Information Management Student
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Player Section -->
+    <section class="music-section">
+      <h2 class="section-heading">Currently Listening</h2>
+      <div class="music-player">
+        <img src="dimensibaru.jpg" alt="Dimensi Baru Album Art">
+        <div class="music-details">
+          <div class="song-title">Dia</div>
+          <div class="artist-name">Sheila Majid</div>
+          <audio controls>
+            <source src="dia.mp3.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+      <h2 class="section-heading">Skills</h2>
+      <div class="skill">
+        <span>Coding Languages: C++ / PHP / HTML</span>
+        <div class="skill-bar">
+          <div class="skill-fill html"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <span>Video Editing: Capcut / Adobe Premiere</span>
+        <div class="skill-bar">
+          <div class="skill-fill video"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <span>Media Tools: Canva / Lightroom</span>
+        <div class="skill-bar">
+          <div class="skill-fill media"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements-section">
+      <h2 class="section-heading">Achievements</h2>
+      <ul class="achievement-list">
+        <li>Dean's List – First & Second Semester</li>
+        <li>Treasurer of Sekretariat Rakan Muda (2024–2025)</li>
+        <li>Logistic Secretary of Jawatankuasa Parlimen Mahasiswa (2024)</li>
+        <li>Published E-Magazine on Travelling Southeast Asia</li>
+      </ul>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <h2>Interested in Working Together?</h2>
+      <p>Let's connect and discuss how I can contribute to your team or project.</p>
+      <a href="contacts.html" class="cta-button">GET IN TOUCH</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      &copy; 2025 Uzair. A manuscript of belonging and memory.
+    </footer>
+  </div>
+
+  <!-- Clock Script -->
+  <script>
+    function updateClock() {
+      const options = {
+        timeZone: 'Asia/Kuala_Lumpur',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('en-GB', options);
+      const parts = formatter.formatToParts(now);
+
+      let dateStr = '';
+      let timeStr = '';
+      
+      parts.forEach(part => {
+        if (['year', 'month', 'day'].includes(part.type)) {
+          dateStr += part.value + ' ';
+        }
+        if (['hour', 'minute', 'second'].includes(part.type)) {
+          timeStr += part.value + (part.type !== 'second' ? ':' : '');
+        }
+      });
+
+      document.getElementById('clock').innerHTML = `${dateStr.trim()}<br>${timeStr}`;
+    }
+    
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>

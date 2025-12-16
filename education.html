@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education</title>
+  <style>
+    /* ===== GLOBAL STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+      background-color: #f5f0e6;
+      color: #3e2f1c;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ===== CLOCK SECTION ===== */
+    #clock-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    #clock {
+      font-family: 'Courier New', monospace;
+      font-size: 1.5em;
+      color: #f4f4f4;
+      background-color: #2b2b2b;
+      border: 3px inset #555;
+      padding: 14px 28px;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      letter-spacing: 2px;
+      text-shadow: 0 0 6px #00ffcc;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      background-color: #d8c3a5;
+      border: 2px solid #b89b72;
+      padding: 12px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+      color: #3e2f1c;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-family: 'Palatino Linotype', serif;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+
+    .navbar a:hover {
+      color: #6b4226;
+      text-decoration: underline;
+    }
+
+    /* ===== PAGE HEADING ===== */
+    .page-heading {
+      font-family: 'Palatino Linotype', serif;
+      font-style: italic;
+      font-size: 2.4em;
+      color: #4b3621;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* ===== TIMELINE SECTION ===== */
+    .timeline {
+      position: relative;
+      margin: 0 auto 60px;
+      max-width: 800px;
+      padding-left: 30px;
+      border-left: 3px solid #b89b72;
+    }
+
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    }
+
+    .timeline-entry.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-entry::before {
+      content: '';
+      position: absolute;
+      left: -41px;
+      top: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: #d8c3a5;
+      border: 3px solid #b89b72;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    /* ===== POLAROID CARD ===== */
+    .polaroid {
+      background-color: #fff;
+      border: 10px solid #fff;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      max-width: 450px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .polaroid:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(120, 90, 60, 0.35);
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+
+    .caption {
+      font-family: 'Georgia', serif;
+      font-size: 1.1em;
+      color: #5c4033;
+      margin-bottom: 10px;
+    }
+
+    .caption-title {
+      font-weight: bold;
+      color: #4b3621;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.2em;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .school-link {
+      color: #5c4033;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .school-link:hover {
+      color: #3e2f1c;
+      text-decoration: underline;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 16px;
+      background-color: #c27039;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: all 0.3s ease;
+    }
+
+    .map-link:hover {
+      background-color: #d88a55;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* ===== TRIVIA BUTTON ===== */
+    .trivia-button {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.9em;
+      background-color: #d8c3a5;
+      border: 2px solid #b89b72;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+      color: #3e2f1c;
+      transition: all 0.3s ease;
+    }
+
+    .trivia-button:hover {
+      background-color: #b89b72;
+      color: #fff;
+    }
+
+    .trivia-box {
+      display: none;
+      background-color: #fff8e1;
+      border: 2px solid #b89b72;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-size: 0.95em;
+      font-family: 'Georgia', serif;
+      color: #4b3621;
+      animation: fadeIn 0.6s ease-out;
+      text-align: left;
+    }
+
+    /* ===== ACHIEVEMENTS SECTION WITH TABLE ===== */
+    .achievements-section {
+      max-width: 1100px;
+      margin: 60px auto 40px;
+      background-color: #fff;
+      border: 2px solid #b89b72;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 6px 12px rgba(120, 90, 60, 0.2);
+    }
+
+    .section-heading {
+      font-family: 'Palatino Linotype', serif;
+      font-size: 2em;
+      color: #4b3621;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* ===== TABLE STYLES ===== */
+    .achievements-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(120, 90, 60, 0.15);
+    }
+
+    .achievements-table thead {
+      background: linear-gradient(135deg, #d8c3a5 0%, #c9b193 100%);
+    }
+
+    .achievements-table th {
+      font-family: 'Palatino Linotype', serif;
+      font-size: 1.2em;
+      color: #3e2f1c;
+      padding: 18px 15px;
+      text-align: left;
+      border: 2px solid #b89b72;
+      font-weight: bold;
+    }
+
+    .achievements-table td {
+      font-family: 'Georgia', serif;
+      font-size: 1em;
+      color: #5c4033;
+      padding: 15px;
+      border: 2px solid #d8c3a5;
+      vertical-align: top;
+      background-color: #faf8f5;
+    }
+
+    .achievements-table tbody tr:hover {
+      background-color: #fff8e1;
+      transition: background-color 0.3s ease;
+    }
+
+    .achievements-table ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .achievements-table ul li {
+      padding: 6px 0;
+      position: relative;
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    .achievements-table ul li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: #c27039;
+      font-weight: bold;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes glow {
+      from { text-shadow: 0 0 5px rgba(255, 235, 200, 0.4); }
+      to { text-shadow: 0 0 15px rgba(255, 235, 200, 0.8); }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      font-size: 0.95em;
+      color: #7b5e45;
+      margin-top: 50px;
+      font-style: italic;
+      padding: 20px 0;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+
+      #clock {
+        font-size: 1.2em;
+        padding: 10px 20px;
+      }
+
+      .navbar a {
+        margin: 5px 10px;
+        font-size: 0.9em;
+      }
+
+      .page-heading {
+        font-size: 1.8em;
+      }
+
+      .section-heading {
+        font-size: 1.5em;
+      }
+
+      .timeline {
+        padding-left: 25px;
+      }
+
+      .timeline-entry::before {
+        left: -36px;
+      }
+
+      .polaroid {
+        max-width: 100%;
+      }
+
+      .achievements-section {
+        padding: 25px;
+        overflow-x: auto;
+      }
+
+      .achievements-table {
+        font-size: 0.9em;
+      }
+
+      .achievements-table th,
+      .achievements-table td {
+        padding: 10px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Clock -->
+    <div id="clock-container">
+      <div id="clock"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <a href="index.html">Index</a>
+      <a href="biodata.html">Biodata</a>
+      <a href="experience.html">Experience</a>
+      <a href="education.html">Education</a>
+      <a href="family.html">Family</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+
+    <!-- Page Heading -->
+    <h1 class="page-heading">My Education</h1>
+
+    <!-- Timeline Section -->
+    <div class="timeline">
+      <!-- Primary School -->
+      <div class="timeline-entry">
+        <div class="polaroid">
+          <img src="sk.jpg" alt="SK Taman Perling 3">
+          <div class="caption">
+            <span class="caption-title">SK Taman Perling 3</span>
+            <a href="https://www.facebook.com/sktamanperling3/?locale=ms_MY" target="_blank" class="school-link">
+              Primary School Year, 2012–2017
+            </a>
+            <br>
+            <a class="map-link" href="https://www.google.com/maps/place/Sekolah+Kebangsaan+Taman+Perling+3/@1.4798762,103.6670793,14.88z/data=!4m10!1m2!2m1!1sSK+Taman+Perling+3!3m6!1s0x31da0cd1849aed09:0x6718dc7d42d02550!8m2!3d1.4721115!4d103.6732254!15sChJTSyBUYW1hbiBQZXJsaW5nIDOSARhnZW5lcmFsX2VkdWNhdGlvbl9zY2hvb2zgAQA!16s%2Fg%2F1231m26h" target="_blank">
+              📍 View on Google Maps
+            </a>
+            <br>
+            <button class="trivia-button" onclick="toggleTrivia(this)">💡 Trivia</button>
+          </div>
+          <div class="trivia-box">
+            <strong>Fun Fact:</strong> Participated in Choral Speaking Competition in 2016, where I learned the importance of teamwork and public speaking.
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary School -->
+      <div class="timeline-entry">
+        <div class="polaroid">
+          <img src="smk.jpg" alt="SMK Taman Nusa Damai">
+          <div class="caption">
+            <span class="caption-title">SMK Taman Nusa Damai</span>
+            <a href="https://www.facebook.com/standskk/?locale=ms_MY" target="_blank" class="school-link">
+              Secondary School Year, 2018–2022
+            </a>
+            <br>
+            <a class="map-link" href="https://www.google.com/maps/place/SMK+Taman+Nusa+Damai/@1.4985927,103.8944744,17z/data=!3m1!4b1!4m6!3m5!1s0x31da6a981876f395:0x2d6e7d3af0a8098e!8m2!3d1.4985873!4d103.8993453!16s%2Fg%2F1pztwwcwh" target="_blank">
+              📍 View on Google Maps
+            </a>
+            <br>
+            <button class="trivia-button" onclick="toggleTrivia(this)">💡 Trivia</button>
+          </div>
+          <div class="trivia-box">
+            <strong>Fun Fact:</strong> Active member of the English Language Society and was once the members of Handball Club , which helped me develop leadership and teamwork skills.
+          </div>
+        </div>
+      </div>
+
+      <!-- University -->
+      <div class="timeline-entry">
+        <div class="polaroid">
+          <img src="uitm.jpg" alt="UiTM Segamat">
+          <div class="caption">
+            <span class="caption-title">UiTM Cawangan Johor</span>
+            <a href="https://johor.uitm.edu.my/" target="_blank" class="school-link">
+              University Era, 2023–2026
+            </a>
+            <br>
+            <a class="map-link" href="https://www.google.com/maps/place/UiTM+Cawangan+Johor,+Kampus+Segamat/@2.4879644,102.7267277,17z/data=!3m1!4b1!4m6!3m5!1s0x31ce2c6ce929a871:0xc0dfa5fe6922a589!8m2!3d2.4879644!4d102.7293026!16s%2Fg%2F187cd8bw" target="_blank">
+              📍 View on Google Maps
+            </a>
+            <br>
+            <button class="trivia-button" onclick="toggleTrivia(this)">💡 Trivia</button>
+          </div>
+          <div class="trivia-box">
+            <strong>Current Status:</strong> Maintaining a CGPA of 3.48 and actively developing a Sport Rental Management System as part of my highlighted project.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements Section with Table -->
+    <section class="achievements-section">
+      <h2 class="section-heading">Academic Achievements</h2>
+      
+      <table class="achievements-table">
+        <thead>
+          <tr>
+            <th>Primary School (2012-2017)</th>
+            <th>Secondary School (2018-2022)</th>
+            <th>University (2023-2026)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <ul>
+                <li>Choral Speaking Competition Participant (2016)</li>
+                <li>UPSR Excellence</li>
+                <li>Perfect Attendance Certificate</li>
+                <li>Running Bronze Medal</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>English Language Society Member</li>
+                <li>Handball Club Player</li>
+                <li>SPM Graduate (2022)</li>
+                <li>School Librarian Prefect (2018-2020)</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Dean's List – 1st & 2nd Semester</li>
+                <li>Current CGPA: 3.48</li>
+                <li>Treasurer of Sekretariat Rakan Muda (2024-2025)</li>
+                <li>Logistic Secretary of Jawatankuasa Parlimen Mahasiswa (2024)</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <ul>
+                <li>Mathematics Competition Participant</li>
+                <li>Class Monitor</li>
+                <li>School Library Assistant</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Debate Team Member</li>
+                <li>Science Fair Participant</li>
+                <li>Community Service Volunteer</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Published E-Magazine on Travelling Southeast Asia</li>
+                <li>Sport Rental Management System (Final Year Project)</li>
+                <li>Database Design Projects</li>
+                <li>Web Development Portfolio</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      &copy; 2025 Uzair. A journey that helps me grow.
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Clock Update Function
+    function updateClock() {
+      const options = {
+        timeZone: 'Asia/Kuala_Lumpur',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('en-GB', options);
+      const parts = formatter.formatToParts(now);
+
+      let dateStr = '';
+      let timeStr = '';
+      
+      parts.forEach(part => {
+        if (['year', 'month', 'day'].includes(part.type)) {
+          dateStr += part.value + ' ';
+        }
+        if (['hour', 'minute', 'second'].includes(part.type)) {
+          timeStr += part.value + (part.type !== 'second' ? ':' : '');
+        }
+      });
+
+      document.getElementById('clock').innerHTML = `${dateStr.trim()}<br>${timeStr}`;
+    }
+
+    // Reveal Timeline Entries on Scroll
+    function revealOnScroll() {
+      const entries = document.querySelectorAll('.timeline-entry');
+      const windowHeight = window.innerHeight;
+
+      entries.forEach(entry => {
+        const position = entry.getBoundingClientRect().top;
+        if (position < windowHeight - 100) {
+          entry.classList.add('visible');
+        }
+      });
+    }
+
+    // Toggle Trivia Box
+    function toggleTrivia(button) {
+      const box = button.parentElement.nextElementSibling;
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    }
+
+    // Event Listeners
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    
+    // Initialize Clock
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>

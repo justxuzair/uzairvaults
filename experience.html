@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Experience</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+      background-color: #f5f0e6;
+      color: #3e2f1c;
+      padding: 40px;
+    }
+
+#clock-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#clock {
+  font-family: 'Courier New', monospace;
+  font-size: 1.6em;
+  color: #f4f4f4;
+  background-color: #2b2b2b;
+  border: 3px inset #555;
+  padding: 14px 28px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px #00ffcc;
+}
+
+    .navbar {
+      background-color: #d8c3a5;
+      border: 2px solid #b89b72;
+      padding: 12px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+      color: #3e2f1c;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-family: 'Palatino Linotype', serif;
+    }
+
+    .navbar a:hover { text-decoration: underline; }
+
+    h1 {
+      font-family: 'Palatino Linotype', serif;
+      font-style: italic;
+      font-size: 2.4em;
+      color: #4b3621;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 0 auto;
+      max-width: 700px;
+      padding-left: 20px;
+      border-left: 3px solid #b89b72;
+    }
+
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    }
+
+    .timeline-entry.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-entry::before {
+      content: '';
+      position: absolute;
+      left: -11px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      background-color: #d8c3a5;
+      border: 3px solid #b89b72;
+      border-radius: 50%;
+    }
+
+    .polaroid {
+      background-color: #fff;
+      border: 10px solid #fff;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      margin-top: 10px;
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .caption {
+      font-family: 'Georgia', serif;   /* Normal serif font */
+  font-size: 0.9em;
+  color: #5c4033;
+  margin-top: 5px;
+  animation: glow 2s ease-in-out infinite alternate;
+
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px rgba(255, 235, 200, 0.4);
+      }
+      to {
+        text-shadow: 0 0 15px rgba(255, 235, 200, 0.8);
+      }
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #7b5e45;
+      margin-top: 50px;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<script>
+  function revealOnScroll() {
+    const entries = document.querySelectorAll('.timeline-entry');
+    const windowHeight = window.innerHeight;
+
+    entries.forEach(entry => {
+      const position = entry.getBoundingClientRect().top;
+      if (position < windowHeight - 100) {
+        entry.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+</script>
+
+<body>
+
+<div id="clock-container">
+  <div id="clock"></div>
+</div>
+
+  <div class="navbar">
+      <a href="index.html">Index</a>
+      <a href="biodata.html">Biodata</a>
+      <a href="experience.html">Experience</a>
+      <a href="education.html">Education</a>
+      <a href="family.html">Family</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contacts.html">Contacts</a>
+  </div>
+
+  <h1>My Experience</h1>
+
+  <div class="timeline">
+    <div class="timeline-entry">
+      <div class="polaroid">
+        <img src="experience1.jpg" alt="Experience 1">
+        <div class="caption">Treasurer of Sekretariat Rakan Muda, 2024-2025</div>
+      </div>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="polaroid">
+        <img src="experience4.jpg" alt="Experience 2">
+        <div class="caption">FESMA Participants(UiTM Johor Representative) , 2024</div>
+      </div>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="polaroid">
+        <img src="experience2.jpg" alt="Experience 3">
+        <div class="caption">Treasurer for Youth Leadership Programme, 2024</div>
+      </div>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="polaroid">
+        <img src="experience3.jpg" alt="Experience 4">
+        <div class="caption">Logistics Secretary of Jawatankuasa Parlimen Mahasiswa, 2024</div>
+      </div>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="polaroid">
+        <img src="experience5.jpg" alt="Experience 5">
+        <div class="caption">Industrial Training, 2025</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Uzair. A timeline of growth and quiet triumphs.
+  </div>
+
+  <script>
+    function revealOnScroll() {
+      const entries = document.querySelectorAll('.timeline-entry');
+      const windowHeight = window.innerHeight;
+
+      entries.forEach(entry => {
+        const position = entry.getBoundingClientRect().top;
+        if (position < windowHeight - 100) {
+          entry.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+<script>
+function updateClock() {
+  const options = {
+    timeZone: 'Asia/Kuala_Lumpur',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+
+  const now = new Date();
+  const formatter = new Intl.DateTimeFormat('en-GB', options);
+  const parts = formatter.formatToParts(now);
+
+  let dateStr = '';
+  let timeStr = '';
+  parts.forEach(part => {
+    if (['year', 'month', 'day'].includes(part.type)) {
+      dateStr += part.value + ' ';
+    }
+    if (['hour', 'minute', 'second'].includes(part.type)) {
+      timeStr += part.value + (part.type !== 'second' ? ':' : '');
+    }
+  });
+
+  document.getElementById('clock').innerHTML = 
+    `${dateStr.trim()}<br>${timeStr}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>
