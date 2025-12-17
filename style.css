@@ -1,0 +1,51 @@
+/* General page setup */
+body {
+    body {
+      font-family: 'Georgia', serif;
+      background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+      background-color: #f5f0e6;
+      color: #3e2f1c;
+      padding: 40px;
+    }
+
+    #clock-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #clock {
+      font-family: 'Courier New', monospace;
+      font-size: 1.6em;
+      color: #f4f4f4;
+      background-color: #2b2b2b;
+      border: 3px inset #555;
+      padding: 14px 28px;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      letter-spacing: 2px;
+      text-shadow: 0 0 6px #00ffcc;
+    }
+
+    .navbar {
+      background-color: #d8c3a5;
+      border: 2px solid #b89b72;
+      padding: 12px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+      color: #3e2f1c;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-family: 'Palatino Linotype', serif;
+    }
+
+    .navbar a:hover { 
+      text-decoration: underline; 
+}
+}
