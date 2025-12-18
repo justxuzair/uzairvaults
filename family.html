@@ -62,49 +62,44 @@
       margin-bottom: 40px;
     }
 
-.family-photo {
-  text-align: center;
-  margin-bottom: 40px;
-}
+    .family-photo {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-.family-photo .polaroid {
-  background-color: #fff;
-  border: 10px solid #fff;
-  border-radius: 6px;
-  box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
-  padding: 10px;
-  text-align: center;
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-}
+    .family-photo .polaroid {
+      background-color: #fff;
+      border: 10px solid #fff;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
-.family-photo .polaroid img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
+    .family-photo .polaroid img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
 
-.family-photo .caption {
-  font-family: 'Georgia', serif;
-  font-size: 1.1em;
-  color: #5c4033;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 5px rgba(255, 235, 200, 0.4); }
-  to   { text-shadow: 0 0 15px rgba(255, 235, 200, 0.8); }
-}
-
+    .family-photo .caption {
+      font-family: 'Georgia', serif;
+      font-size: 1.1em;
+      color: #5c4033;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
 
     .polaroid-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
+      margin-bottom: 50px;
     }
 
     .polaroid {
@@ -125,13 +120,6 @@
       margin-bottom: 10px;
     }
 
-.polaroid-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
     .caption {
       font-family: 'Georgia', serif;
       font-size: 1em;
@@ -142,6 +130,57 @@
     @keyframes glow {
       from { text-shadow: 0 0 5px rgba(255, 235, 200, 0.4); }
       to   { text-shadow: 0 0 15px rgba(255, 235, 200, 0.8); }
+    }
+
+    /* Table styling */
+    .table-container {
+      max-width: 900px;
+      margin: 50px auto;
+      overflow-x: auto;
+    }
+
+    .family-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .family-table thead tr {
+      background-color: #d8c3a5;
+      color: #3e2f1c;
+    }
+
+    .family-table th {
+      padding: 15px;
+      text-align: left;
+      font-family: 'Palatino Linotype', serif;
+      border-bottom: 2px solid #b89b72;
+      font-weight: bold;
+    }
+
+    .family-table th.center {
+      text-align: center;
+    }
+
+    .family-table td {
+      padding: 12px;
+      color: #3e2f1c;
+      border-bottom: 1px solid #e8dcc8;
+    }
+
+    .family-table td.center {
+      text-align: center;
+    }
+
+    .family-table tbody tr:nth-child(even) {
+      background-color: #faf8f3;
+    }
+
+    .family-table tbody tr:last-child td {
+      border-bottom: none;
     }
 
     .footer {
@@ -175,13 +214,13 @@
 
   <!-- Full Family Photo -->
   <div class="family-photo">
-  <a href="familygroup.jpg" target="_blank">
-    <div class="polaroid">
-      <img src="familygroup.jpg" alt="Keluarga Kami">
-      <div class="caption">Lovely Home since Day 1</div>
-    </div>
-  </a>
-</div>
+    <a href="familygroup.jpg" target="_blank">
+      <div class="polaroid">
+        <img src="familygroup.jpg" alt="Keluarga Kami">
+        <div class="caption">Lovely Home since Day 1</div>
+      </div>
+    </a>
+  </div>
 
   <!-- Individual Polaroid Frames -->
   <div class="polaroid-grid">
@@ -209,6 +248,58 @@
       <img src="jajai.jpg" alt="Me">
       <div class="caption">Uzair Hakimy — Me</div>
     </div>
+  </div>
+
+  <!-- Family Information Table -->
+  <div class="table-container">
+    <table class="family-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Relationship</th>
+          <th class="center">Age</th>
+          <th>Birthday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ahmad Ismail Taib</td>
+          <td>Father</td>
+          <td class="center">58 Years Old</td>
+          <td>10th February 1967</td>
+        </tr>
+        <tr>
+          <td>Rofidah Ismail</td>
+          <td>Mother</td>
+          <td class="center">58 Years Old</td>
+          <td>30 September 1967</td>
+        </tr>
+        <tr>
+          <td>Muhammad Hilmy Ashraff'</td>
+          <td>Eldest Brother</td>
+          <td class="center">32 Years Old</td>
+          <td>2 February 1993</td>
+        </tr>
+        <tr>
+          <td>Qutrin Nazira</td>
+          <td>Eldest Sister</td>
+          <td class="center">28 Years Old</td>
+          <td>1st December 1997</td>
+        </tr>
+        <tr>
+          <td>Qhairunnisaa</td>
+          <td>Second Sister</td>
+          <td class="center">25 Years Old</td>
+          <td>10 October 2000</td>
+        </tr>
+        <tr>
+          <td>Uzair Hakimy</td>
+          <td>Me (Youngest)</td>
+          <td class="center">20 Years Old</td>
+          <td>9th March 2005</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="footer">
