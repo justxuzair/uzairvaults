@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
   <title>Gallery</title>
   <style>
     body {
@@ -139,6 +140,35 @@
       text-align: center;
     }
 
+    /* Video section */
+    .video-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .video-frame {
+      background-color: #fff;
+      border: 10px solid #fff;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(120, 90, 60, 0.25);
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-frame:hover {
+      transform: translateY(-5px) rotate(-1deg);
+      box-shadow: 0 12px 25px rgba(120, 90, 60, 0.35);
+    }
+
+    .video-frame video {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
     .footer {
       text-align: center;
       font-size: 0.9em;
@@ -170,27 +200,53 @@
 
 <!-- Gallery Grid -->
 <div class="gallery-container">
-  <div class="polaroid" onclick="openLightbox(0)"><img src="picture1.jpg"><div class="caption">Memory 1...</div></div>
-  <div class="polaroid" onclick="openLightbox(1)"><img src="picture2.jpg"><div class="caption">Memory 2...</div></div>
-  <div class="polaroid" onclick="openLightbox(2)"><img src="picture3.jpg"><div class="caption">Memory 3...</div></div>
-  <div class="polaroid" onclick="openLightbox(3)"><img src="picture4.jpg"><div class="caption">Memory 4...</div></div>
-  <div class="polaroid" onclick="openLightbox(4)"><img src="picture5.jpg"><div class="caption">Memory 5...</div></div>
-  <div class="polaroid" onclick="openLightbox(5)"><img src="picture6.jpg"><div class="caption">Memory 6...</div></div>
-  <div class="polaroid" onclick="openLightbox(6)"><img src="picture7.jpg"><div class="caption">Memory 7...</div></div>
-  <div class="polaroid" onclick="openLightbox(7)"><img src="picture8.jpg"><div class="caption">Memory 8...</div></div>
-  <div class="polaroid" onclick="openLightbox(8)"><img src="picture9.jpg"><div class="caption">Memory 9...</div></div>
-  <div class="polaroid" onclick="openLightbox(9)"><img src="picture10.jpg"><div class="caption">Memory 10...</div></div>
-  <div class="polaroid" onclick="openLightbox(10)"><img src="picture11.jpg"><div class="caption">Memory 11...</div></div>
-  <div class="polaroid" onclick="openLightbox(11)"><img src="picture12.jpg"><div class="caption">Memory 12...</div></div>
-  <div class="polaroid" onclick="openLightbox(12)"><img src="picture13.jpg"><div class="caption">Memory 13...</div></div>
-  <div class="polaroid" onclick="openLightbox(13)"><img src="picture16.jpg"><div class="caption">Memory 14...</div></div>
-  <div class="polaroid" onclick="openLightbox(14)"><img src="family.jpg"><div class="caption">Memory 15...</div></div>
+  <div class="polaroid" onclick="openLightbox(0)"><img src="picture1.jpg"><div class="caption">Raya 2025</div></div>
+  <div class="polaroid" onclick="openLightbox(1)"><img src="picture2.jpg"><div class="caption">ANASH</div></div>
+  <div class="polaroid" onclick="openLightbox(2)"><img src="picture3.jpg"><div class="caption">NIGHT OUT</div></div>
+  <div class="polaroid" onclick="openLightbox(3)"><img src="picture4.jpg"><div class="caption">MELAKA TRIP</div></div>
+  <div class="polaroid" onclick="openLightbox(4)"><img src="picture5.jpg"><div class="caption">FIRST SEM ROOMIES</div></div>
+  <div class="polaroid" onclick="openLightbox(5)"><img src="picture6.jpg"><div class="caption">ARCHIVE TRIP</div></div>
+  <div class="polaroid" onclick="openLightbox(6)"><img src="picture7.jpg"><div class="caption">WINGMANS</div></div>
+  <div class="polaroid" onclick="openLightbox(7)"><img src="picture8.jpg"><div class="caption">ANOTHER MELAKA TRIP</div></div>
+  <div class="polaroid" onclick="openLightbox(8)"><img src="picture9.jpg"><div class="caption">SRM FAMILIA</div></div>
+  <div class="polaroid" onclick="openLightbox(9)"><img src="picture10.jpg"><div class="caption">AGM SRM 24</div></div>
+  <div class="polaroid" onclick="openLightbox(10)"><img src="picture11.jpg"><div class="caption">Semester 2</div></div>
+  <div class="polaroid" onclick="openLightbox(11)"><img src="picture12.jpg"><div class="caption">Fesma</div></div>
+  <div class="polaroid" onclick="openLightbox(12)"><img src="picture13.jpg"><div class="caption">Full Team</div></div>
+  <div class="polaroid" onclick="openLightbox(13)"><img src="picture16.jpg"><div class="caption">Backbone</div></div>
+  <div class="polaroid" onclick="openLightbox(14)"><img src="family.jpg"><div class="caption">Janda Baik Family Trip</div></div>
 </div>
 
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox">
   <img class="lightbox-content" id="lightbox-img">
   <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<!-- Video Section -->
+<h1 style="margin-top: 60px;">Video Memories</h1>
+<div class="video-container">
+  <div class="video-frame">
+    <video controls>
+      <source src="cafe.mp4.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="caption">Exploring Tomisstan Cafe</div>
+  </div>
+  <div class="video-frame">
+    <video controls>
+      <source src="karaoke.mp4.MOV" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="caption">Karaoke Time</div>
+  </div>
+  <div class="video-frame">
+    <video controls>
+      <source src="zoo.mp4.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="caption">Exploring Zoo Johor</div>
+  </div>
 </div>
 
 <div class="footer">&copy; 2025 Uzair. A scrapbook of timeless memories.</div>
